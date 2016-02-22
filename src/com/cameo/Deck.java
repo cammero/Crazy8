@@ -9,7 +9,6 @@ public class Deck {
     private String[] rank = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
     private LinkedList<Card> deckOfCards =  new LinkedList<>();
 
-    //constructor
     public Deck() {
 
         this.deckOfCards = createDeckOfCards();

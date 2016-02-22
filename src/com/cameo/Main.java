@@ -8,13 +8,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Instantiate the deck
-        Deck crazy8Deck = new Deck();
+        Deck crazy8Deck = new Deck(); //Instantiate the deck
+
         //Instantiate two hands for two players
         Hand player1Hand = new Hand();
         player1Hand.setPlayerName("Player 1");
         Hand player2Hand = new Hand();
         player2Hand.setPlayerName("Player 2");
+        //TODO Version 2 Instantiate Players first and have the Players set their own names.
+
         ArrayList<Hand> players = new ArrayList<>();
         players.add(player1Hand);
         players.add(player2Hand);
@@ -25,9 +27,14 @@ public class Main {
             player2Hand.addCard(crazy8Deck.dealCard());
         }
 
-        Card topCard = crazy8Deck.dealCard();
         StockPile stock = new StockPile();
+        Card topCard = crazy8Deck.dealCard();
         stock.addCardToStockPile(topCard);
+        /*TODO if the first card added to the stockpile from the deck is an 8, another card needs to be drawn on top and
+        must disregard regular "addToStockPile" rules. The following code currently doesn't work to do so */
+//        if (topCard.getRank() == "8"){
+//            stock.addCardToStockPile(crazy8Deck.dealCard());
+//        }
 
         boolean gameOver = false;
         while (!gameOver) {
@@ -88,6 +95,12 @@ public class Main {
 
                     } catch (NumberFormatException nfe){
                         System.out.println("Please type a valid entry.");
+                    }
+
+                    //if there are no remaining cards to draw, the game is over
+                    if (crazy8Deck.remainingCardsInDeck() == 0){
+                        System.out.println("There aren't any remaining cards to draw from the deck. \nGame over.");
+                        gameOver = true;
                     }
                 }
                 if (gameOver == true){

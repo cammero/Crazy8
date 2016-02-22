@@ -16,7 +16,7 @@ public class Card {
         this.value = getValue(rank);
     }
 
-    //Value is only used at the end of the game to determine points
+    //Value is only used at the end of the game to determine points per hand
     public int getValue(String rank) {
         switch (rank) {
             case "Ace":
@@ -47,23 +47,19 @@ public class Card {
     }
 
     //TODO In the next version
-    public void checkForSpecialCard(String rank){
-        switch (rank){
-            case "2":
-                System.out.println("Draw two");
-                //TODO where to create method to draw card in Deck? Hand?
-            case "8":
-                System.out.println("Wild card. What suit would you like to pick?");
-                //TODO create changeSuit method
-            case "Queen":
-                System.out.println("Skip");
-                //TODO create skip method
-        }
-    }
-
-    public void displayCard(){
-        System.out.println(rank + " of " + suit);
-    }
+//    public void checkForSpecialCard(String rank){
+//        switch (rank){
+//            case "2":
+//                System.out.println("Draw two");
+//                //TODO where to create method to draw card in Deck? Hand?
+//            case "8":
+//                System.out.println("Wild card. What suit would you like to pick?");
+//                //TODO create changeSuit method
+//            case "Queen":
+//                System.out.println("Skip");
+//                //TODO create skip method
+//        }
+//    }
 
     public String getSuit() {
         return suit;
